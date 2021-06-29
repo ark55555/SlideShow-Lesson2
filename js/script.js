@@ -21,3 +21,13 @@ $(".theTarget").skippr({
   // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
   hidePrevious : false
 });
+
+$(function() {
+  // #back内のaタグがクリックされたときの処理
+  $('#back a').on('click',function(event){
+    $('body,html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
+});
