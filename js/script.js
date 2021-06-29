@@ -13,7 +13,7 @@ $(".theTarget").skippr({
   // ナビゲーション矢印の表示（trueで表示）
   arrows : true,
   // スライドショーの自動再生（falseで自動再生なし）
-  autoPlay : true,
+  autoPlay : false,
   // 自動再生時のスライド切替間隔（ミリ秒）
   autoPlayDuration : 5000,
   // キーボードの矢印キーによるスライド送りの設定（trueで有効）
@@ -28,6 +28,17 @@ $(function() {
     $('body,html').animate({
       scrollTop:0
     }, 800);
+    event.preventDefault();
+  });
+});
+
+$(function(){
+  // .menu-triggerクリック時に行われる処理
+  $('.menu-trigger').on('click',function(event){
+    // 指定されているclass（ここではactive）をトグル処理するメソッド
+    $(this).toggleClass('active');
+    // フェードイン・フェードアウトを切り替えるメソッド
+    $('#sp-menu').fadeToggle();
     event.preventDefault();
   });
 });
