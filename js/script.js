@@ -13,7 +13,7 @@ $(".theTarget").skippr({
   // ナビゲーション矢印の表示（trueで表示）
   arrows : true,
   // スライドショーの自動再生（falseで自動再生なし）
-  autoPlay : false,
+  autoPlay : true,
   // 自動再生時のスライド切替間隔（ミリ秒）
   autoPlayDuration : 5000,
   // キーボードの矢印キーによるスライド送りの設定（trueで有効）
@@ -41,4 +41,15 @@ $(function(){
     $('#sp-menu').fadeToggle();
     event.preventDefault();
   });
+});
+
+$('#tab-contents .tab[id != "tab1"]').hide();
+
+$('#tab-menu a').on('click', function(event){
+  // イベント発生時に行われる処理
+  $("#tab-contents .tab").hide();
+  $("#tab-menu .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
 });
